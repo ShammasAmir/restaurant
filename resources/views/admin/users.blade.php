@@ -15,9 +15,9 @@
 
 </head>
 
-<div class="container-scroller">
+<body>
 
-    <body>
+    <div class="container-scroller">
 
         @include('admin.navbar')
 
@@ -37,12 +37,12 @@
 
                 @foreach ($data as $data)
                     <tr align="center">
-                        <td>{{$data->name}}</td>
-                        <td>{{$data->email}}</td>
+                        <td>{{ $data->name }}</td>
+                        <td>{{ $data->email }}</td>
                         {{-- <td><a href="">Delete</a></td> --}}
 
-                        @if($data->usertype=="0")
-                            <td><a href="{{url('/deleteuser',$data->id)}}">Delete</a></td>
+                        @if ($data->usertype == '0')
+                            <td><a style="background-color: pink" href="{{ url('/deleteuser', $data->id) }}">Delete</a></td>
                         @else
                             <td><a>Not Allowed</a></td>
                         @endif
@@ -50,14 +50,14 @@
                     </tr>
                 @endforeach
 
-
-
             </table>
         </div>
 
-        @include('admin.adminscript')
+    </div>
 
-    </body>
-</div>
+    @include('admin.adminscript')
+    
+</body>
+
 
 </html>
