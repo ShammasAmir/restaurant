@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 
 use App\Models\User;
 
+use App\Models\Food;
+
 class AdminController extends Controller
 {
     public function user()
@@ -19,5 +21,11 @@ class AdminController extends Controller
         $data=user::find($id);
         $data->delete();
         return redirect()->back();
+    }
+
+    public function food()
+    {
+        $data=food::all();
+        return view("admin.foods",compact("data"));
     }
 }

@@ -13,6 +13,8 @@ Route::get("/users",[AdminController::class,"user"]);
 
 Route::get("/deleteuser/{id}",[AdminController::class,"deleteuser"]);
 
+Route::get("/foods",[AdminController::class,"food"]);
+
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
