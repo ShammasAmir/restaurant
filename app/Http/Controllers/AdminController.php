@@ -48,4 +48,24 @@ class AdminController extends Controller
         $data->delete();
         return redirect()->back();
     }
+
+    public function editfood($id)
+    {
+        $data=food::find($id);
+        return view("admin.editfood",compact("data"));
+    }
+
+    public function updatefood(Request $request, $id)
+    {
+        $data=food::find($id);
+
+        $data->title=$request->title;
+        $data->price=$request->price;
+        $data->description=$request->description;
+
+        $data->save();
+
+        return redirect()->route("foods");
+        
+    }
 }

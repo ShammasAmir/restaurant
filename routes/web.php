@@ -13,11 +13,15 @@ Route::get("/users",[AdminController::class,"user"]);
 
 Route::get("/deleteuser/{id}",[AdminController::class,"deleteuser"]);
 
-Route::get("/foods",[AdminController::class,"food"]);
+Route::get("/foods",[AdminController::class,"food"])->name("foods");
 
 Route::post("/createfood",[AdminController::class,"createfood"]);
 
 Route::get("/deletefood/{id}",[AdminController::class,"deletefood"]);
+
+Route::get("/editfood/{id}",[AdminController::class,"editfood"]);
+
+Route::post("/updatefood/{id}",[AdminController::class,"updatefood"]);
 
 Route::middleware([
     'auth:sanctum',

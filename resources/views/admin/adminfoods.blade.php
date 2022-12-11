@@ -66,7 +66,7 @@
                         <td>{{ $data->price }}</td>
                         <td>{{ $data->description }}</td>
                         <td>{{ $data->image }}</td>
-                        <td><a style="background-color: yellow" href="">Edit</a></td>
+                        <td><a style="background-color: yellow" href="{{url('/editfood', $data->id)}}">Edit</a></td>
                         <td><a style="background-color: pink" href="{{url('/deletefood', $data->id)}}">Delete</a></td>
                     </tr>
                 @endforeach
