@@ -21,9 +21,9 @@
 
         @include('admin.navbar')
     
-        <div style="position:relative; top:60px; right:-150px">
+        <div>
             <h2>Create New Food</h2>
-            <form action="{{url('/createfood')}}" method="POST">
+            <form action="{{url('/createfood')}}" method="POST" enctype="multipart/form-data">
                 @csrf
 
                 <div>
@@ -42,6 +42,11 @@
                 </div>
 
                 <div>
+                    <label>Image</label>
+                    <input type="file" name="image" style="color: white; margin-bottom: 10px" required>
+                </div>
+
+                <div>
                     <input type="submit" value="Create Food" style="background-color: green">  
                 </div>
 
@@ -49,7 +54,7 @@
         
         </div>
 
-        <div style="position:relative; top:350px; right:200px">
+        <div>
             <table bgcolor="grey" border="3px">
                 <tr>
                     <th style="padding:30px">Title</th>
@@ -65,7 +70,7 @@
                         <td>{{ $data->title }}</td>
                         <td>{{ $data->price }}</td>
                         <td>{{ $data->description }}</td>
-                        <td>{{ $data->image }}</td>
+                        <td><img width="100" height="100" src="/foodimage/{{ $data->image }}"></td>
                         <td><a style="background-color: yellow" href="{{url('/editfood', $data->id)}}">Edit</a></td>
                         <td><a style="background-color: pink" href="{{url('/deletefood', $data->id)}}">Delete</a></td>
                     </tr>

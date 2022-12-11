@@ -25,7 +25,7 @@
     
         <div style="position:relative; top:60px; right:-150px">
             <h2>Edit Food</h2>
-            <form action="{{url('/updatefood', $data->id)}}" method="POST">
+            <form action="{{url('/updatefood', $data->id)}}" method="POST" enctype="multipart/form-data">
                 @csrf
 
                 <div>
@@ -41,6 +41,16 @@
                 <div>
                     <label>Description</label>
                     <input type="text" name="description" value="{{$data->description}}" style="color: black; margin-bottom: 10px" required>
+                </div>
+
+                <div>
+                    <label>Old Image</label>
+                    <img width="100" height="100" src="/foodimage/{{ $data->image }}" style="color: black; margin-bottom: 10px">
+                </div>
+
+                <div>
+                    <label>New Image</label>
+                    <input type="file" name="image" style="color: white; margin-bottom: 10px" required>
                 </div>
 
                 <div>
