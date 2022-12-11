@@ -20,9 +20,7 @@
     <div class="container-scroller">
 
         @include('admin.navbar')
-
-        
-            
+    
         <div style="position:relative; top:60px; right:-150px">
             <h2>Create New Food</h2>
             <form action="{{url('/createfood')}}" method="POST">
@@ -47,8 +45,6 @@
                     <input type="submit" value="Create Food" style="background-color: green">  
                 </div>
 
-
-
             </form>
         
         </div>
@@ -71,7 +67,7 @@
                         <td>{{ $data->description }}</td>
                         <td>{{ $data->image }}</td>
                         <td><a style="background-color: yellow" href="">Edit</a></td>
-                        <td><a style="background-color: pink" href="">Delete</a></td>
+                        <td><a style="background-color: pink" href="{{url('/deletefood', $data->id)}}">Delete</a></td>
                     </tr>
                 @endforeach
             </table>

@@ -17,6 +17,8 @@ Route::get("/foods",[AdminController::class,"food"]);
 
 Route::post("/createfood",[AdminController::class,"createfood"]);
 
+Route::get("/deletefood/{id}",[AdminController::class,"deletefood"]);
+
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
