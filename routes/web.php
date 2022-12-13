@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ReserveController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
@@ -22,6 +23,8 @@ Route::get("/deletefood/{id}",[AdminController::class,"deletefood"]);
 Route::get("/editfood/{id}",[AdminController::class,"editfood"]);
 
 Route::post("/updatefood/{id}",[AdminController::class,"updatefood"]);
+
+Route::post("/reserve",[ReserveController::class,"reserve"]);
 
 Route::middleware([
     'auth:sanctum',
