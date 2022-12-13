@@ -80,7 +80,7 @@
                             </div>
                             <div class="col-lg-12">
                                 <fieldset>
-                                    <button type="submit" id="form-submit" class="main-button-icon">Make A Reservation</button>
+                                    <button type="submit" name="reserve" id="form-submit" class="main-button-icon">Make A Reservation</button>
                                 </fieldset>
                             </div>
                         </div>

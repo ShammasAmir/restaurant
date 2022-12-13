@@ -8,6 +8,8 @@ use App\Models\User;
 
 use App\Models\Food;
 
+use App\Models\Reserve;
+
 class AdminController extends Controller
 {
     public function user()
@@ -77,5 +79,18 @@ class AdminController extends Controller
 
         return redirect()->route("foods");
         
+    }
+
+    public function reservation()
+    {
+        $data=reserve::all();
+        return view("admin.adminreservations",compact("data"));
+    }
+
+    public function deletereservation($id)
+    {
+        $data=reserve::find($id);
+        $data->delete();
+        return redirect()->back();
     }
 }

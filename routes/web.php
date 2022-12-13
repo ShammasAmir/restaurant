@@ -26,6 +26,10 @@ Route::post("/updatefood/{id}",[AdminController::class,"updatefood"]);
 
 Route::post("/reserve",[ReserveController::class,"reserve"]);
 
+Route::get("/reservations",[AdminController::class,"reservation"])->name("reservations");
+
+Route::get("/deletereservation/{id}",[AdminController::class,"deletereservation"]);
+
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
