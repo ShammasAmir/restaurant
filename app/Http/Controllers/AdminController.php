@@ -73,10 +73,12 @@ class AdminController extends Controller
         $data->description=$request->description;
 
         $image=$request->image;
+        if($image){
         $imagename=time().'.'.$image->getClientOriginalExtension();
         $request->image->move('foodimage',$imagename);
         $data->image=$imagename;
-
+        }
+        
         $data->save();
 
         return redirect()->route("foods");
@@ -145,7 +147,7 @@ class AdminController extends Controller
         $request->image->move('chefimage',$imagename);
         $data->image=$imagename;
         }
-        
+
         $data->save();
 
         return redirect()->route("chefs");

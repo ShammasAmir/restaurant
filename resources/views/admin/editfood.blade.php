@@ -50,7 +50,7 @@
 
                 <div>
                     <label>New Image</label>
-                    <input type="file" name="image" style="color: white; margin-bottom: 10px" required>
+                    <input type="file" name="image" style="color: white; margin-bottom: 10px">
                 </div>
 
                 <div>
