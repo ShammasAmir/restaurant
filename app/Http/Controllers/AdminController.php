@@ -10,6 +10,8 @@ use App\Models\Food;
 
 use App\Models\Reserve;
 
+use App\Models\Chef;
+
 class AdminController extends Controller
 {
     public function user()
@@ -91,6 +93,29 @@ class AdminController extends Controller
     {
         $data=reserve::find($id);
         $data->delete();
+        return redirect()->back();
+    }
+
+    public function chef()
+    {
+        $data=chef::all();
+        return view("admin.adminchefs",compact("data"));
+    }
+
+    public function createchef(Request $request)
+    {
+        $data=new chef;
+
+        $data->name=$request->name;
+        $data->speciality=$request->speciality;
+
+        $image=$request->image;
+        $imagename=time().'.'.$image->getClientOriginalExtension();
+        $request->image->move('chefimage',$imagename);
+        $data->image=$imagename;
+
+        $data->save();
+
         return redirect()->back();
     }
 }
