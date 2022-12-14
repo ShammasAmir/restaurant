@@ -118,4 +118,37 @@ class AdminController extends Controller
 
         return redirect()->back();
     }
+
+    public function deletechef($id)
+    {
+        $data=chef::find($id);
+        $data->delete();
+        return redirect()->back();
+    }
+
+    public function editchef($id)
+    {
+        $data=chef::find($id);
+        return view("admin.editchef",compact("data"));
+    }
+
+    public function updatechef(Request $request, $id)
+    {
+        $data=chef::find($id);
+
+        $data->name=$request->name;
+        $data->speciality=$request->speciality;
+
+        $image=$request->image;
+        if($image){
+        $imagename=time().'.'.$image->getClientOriginalExtension();
+        $request->image->move('chefimage',$imagename);
+        $data->image=$imagename;
+        }
+        
+        $data->save();
+
+        return redirect()->route("chefs");
+        
+    }
 }

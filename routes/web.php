@@ -34,6 +34,12 @@ Route::get("/chefs",[AdminController::class,"chef"])->name("chefs");
 
 Route::post("/createchef",[AdminController::class,"createchef"]);
 
+Route::get("/deletechef/{id}",[AdminController::class,"deletechef"]);
+
+Route::get("/editchef/{id}",[AdminController::class,"editchef"]);
+
+Route::post("/updatechef/{id}",[AdminController::class,"updatechef"]);
+
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
