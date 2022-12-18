@@ -26,7 +26,11 @@ class HomeController extends Controller
         if($usertype=='1'){
             return view("admin.adminhome");
         }else{
-            return view("home",compact("data","data2"));
+
+            $user_id=Auth::id();
+            $count=cart::where('user_id',$user_id)->count();
+
+            return view("home",compact("data","data2","count"));
         }
     }
 
@@ -47,7 +51,7 @@ class HomeController extends Controller
             $cart->save();
 
             return redirect()->back();
-            
+
         }else{
             return redirect('/login');
         }
