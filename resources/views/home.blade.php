@@ -87,7 +87,7 @@ https://templatemo.com/tm-558-klassy-cafe
                             <li class="scroll-to-section"><a href="#reservation">Contact Us</a></li>
 
                             @auth
-                                <li class="scroll-to-section"><a href="">Cart({{$count}})</a></li>
+                                <li class="scroll-to-section"><a href="{{url('/showcart', Auth::user()->id)}}">Cart({{$count}})</a></li>
                             @endauth
 
                             <li>
@@ -533,13 +533,14 @@ https://templatemo.com/tm-558-klassy-cafe
                     <div class="left-text-content">
                         <p>© Copyright Klassy Cafe Co.
 
-                            <br>Design: TemplateMo
+                            <br>Design: Amir Shammas
                         </p>
                     </div>
                 </div>
             </div>
         </div>
     </footer>
+    <!-- ***** Footer End ***** -->
 
     <!-- jQuery -->
     <script src="assets/js/jquery-2.1.0.min.js"></script>

@@ -56,4 +56,13 @@ class HomeController extends Controller
             return redirect('/login');
         }
     }
+
+    public function showcart(Request $request,$id)
+    {
+        $count=cart::where('user_id',$id)->count();
+
+        $data=cart::where('user_id',$id)->join('food','carts.food_id','=','food.id')->get();
+        
+        return view('showcart',compact("count","data"));
+    }
 }
