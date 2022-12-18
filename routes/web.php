@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\ReserveController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\HomeController;
@@ -39,6 +40,8 @@ Route::get("/deletechef/{id}",[AdminController::class,"deletechef"]);
 Route::get("/editchef/{id}",[AdminController::class,"editchef"]);
 
 Route::post("/updatechef/{id}",[AdminController::class,"updatechef"]);
+
+Route::post("/addtocart/{id}",[HomeController::class,"addtocart"]);
 
 Route::middleware([
     'auth:sanctum',
