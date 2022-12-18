@@ -89,7 +89,8 @@ https://templatemo.com/tm-558-klassy-cafe
                             <li class="scroll-to-section"><a href="#reservation">Contact Us</a></li>
 
                             @auth
-                                <li class="scroll-to-section"><a href="{{url('/showcart', Auth::user()->id)}}">Cart({{$count}})</a></li>
+                                <li class="scroll-to-section"><a
+                                        href="{{ url('/showcart', Auth::user()->id) }}">Cart({{ $count }})</a></li>
                             @endauth
 
                             <li>
@@ -97,35 +98,35 @@ https://templatemo.com/tm-558-klassy-cafe
                                 @if (Route::has('login'))
                                     <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
                                         @auth
-                                            <li>
-                                                <x-app-layout>
+                                <li>
+                                    <x-app-layout>
 
-                                                </x-app-layout>
-                                            </li>
-                                        @else
-                                            <li><a href="{{ route('login') }}"
-                                                class="text-sm text-gray-700 dark:text-gray-500 underline">Log in</a>
-                                            </li>
+                                    </x-app-layout>
+                                </li>
+                            @else
+                                <li><a href="{{ route('login') }}"
+                                        class="text-sm text-gray-700 dark:text-gray-500 underline">Log in</a>
+                                </li>
 
-                                            @if (Route::has('register'))
-                                                <li><a href="{{ route('register') }}"
-                                                    class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline">Register</a>
-                                                </li>
-                                            @endif
-                                        @endauth
-                                    </div>
+                                @if (Route::has('register'))
+                                    <li><a href="{{ route('register') }}"
+                                            class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline">Register</a>
+                                    </li>
                                 @endif
+                            @endauth
+                </div>
+                @endif
 
-                            </li>
+                </li>
 
-                        </ul>
-                        {{-- <a class='menu-trigger'>
+                </ul>
+                {{-- <a class='menu-trigger'>
                             <span>Menu</span>
                         </a> --}}
-                        <!-- ***** Menu End ***** -->
-                    </nav>
-                </div>
+                <!-- ***** Menu End ***** -->
+                </nav>
             </div>
+        </div>
         </div>
     </header>
     <!-- ***** Header Area End ***** -->
@@ -141,13 +142,19 @@ https://templatemo.com/tm-558-klassy-cafe
             </tr>
 
             @foreach ($data as $data)
-                <tr align="center">
-                    <td>{{ $data->title }}</td>
-                    <td>${{ $data->price }}</td>
-                    <td>{{ $data->quantity }}</td>
-                    <td><a style="background-color: pink" href="{{url('/deletecartitem', $data->id)}}">Delete</a></td>
+                    <tr align="center">
+                        <td>{{ $data->title }}</td>
+                        <td>${{ $data->price }}</td>
+                        <td>{{ $data->quantity }}</td>
+                    </tr>
+            @endforeach
+
+            @foreach ($data2 as $data2)
+                <tr style="position:relative; top:-105px; right:-327px">
+                    <td><a style="background-color: pink" href="{{ url('/deletecartitem', $data2->id) }}">Delete</a></td>
                 </tr>
             @endforeach
+
         </table>
     </div>
 
