@@ -134,28 +134,39 @@ https://templatemo.com/tm-558-klassy-cafe
 
     <div id="top">
         <table bgcolor="yellow" border="3px" align="center">
+
             <tr>
                 <th style="padding:30px">Food</th>
                 <th style="padding:30px">Price</th>
                 <th style="padding:30px">Count</th>
-                <th style="padding:30px">Action</th>
             </tr>
 
             @foreach ($data as $data)
-                    <tr align="center">
-                        <td>{{ $data->title }}</td>
-                        <td>${{ $data->price }}</td>
-                        <td>{{ $data->quantity }}</td>
-                    </tr>
-            @endforeach
-
-            @foreach ($data2 as $data2)
-                <tr style="position:relative; top:-105px; right:-327px">
-                    <td><a style="background-color: pink" href="{{ url('/deletecartitem', $data2->id) }}">Delete</a></td>
+                <tr align="center">
+                    <td>{{ $data->title }}</td>
+                    <td>$ {{ $data->price }}</td>
+                    <td>{{ $data->quantity }}</td>
                 </tr>
             @endforeach
 
         </table>
+    </div>
+
+    <div id="top">
+        <table bgcolor="yellow" border="3px" align="center">
+            
+            <tr>
+                <th style="padding:30px">Action</th>
+            </tr>
+
+            @foreach ($data2 as $index => $data2)
+                <tr>
+                    <td><a style="background-color: pink" href="{{ url('/deletecartitem', $data2->id) }}">Delete item {{ $index + 1 }}</a></td>
+                </tr>
+            @endforeach
+
+        </table>
+
     </div>
 
     <!-- jQuery -->
