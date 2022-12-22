@@ -47,6 +47,8 @@ Route::get("/showcart/{id}",[HomeController::class,"showcart"]);
 
 Route::get("/deletecartitem/{id}",[HomeController::class,"deletecartitem"]);
 
+Route::post("/confirmorder",[HomeController::class,"confirmorder"]);
+
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),

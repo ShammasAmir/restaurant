@@ -131,69 +131,81 @@ https://templatemo.com/tm-558-klassy-cafe
     </header>
     <!-- ***** Header Area End ***** -->
 
+    <form action="{{url('/confirmorder')}}" method="post">
+        @csrf
 
-    <div id="top">
-        <table bgcolor="yellow" border="3px" align="center">
+        <div id="top">
+            <table bgcolor="yellow" border="3px" align="center">
 
-            <tr>
-                <th style="padding:30px">Food</th>
-                <th style="padding:30px">Price</th>
-                <th style="padding:30px">Count</th>
-            </tr>
-
-            @foreach ($data as $data)
-                <tr align="center">
-                    <td>{{ $data->title }}</td>
-                    <td>$ {{ $data->price }}</td>
-                    <td>{{ $data->quantity }}</td>
-                </tr>
-            @endforeach
-
-        </table>
-    </div>
-
-    <div id="top">
-        <table bgcolor="yellow" border="3px" align="center">
-            
-            <tr>
-                <th style="padding:30px">Action</th>
-            </tr>
-
-            @foreach ($data2 as $index => $data2)
                 <tr>
-                    <td><a style="background-color: pink" href="{{ url('/deletecartitem', $data2->id) }}">Delete item {{ $index + 1 }}</a></td>
+                    <th style="padding:30px">Food</th>
+                    <th style="padding:30px">Price</th>
+                    <th style="padding:30px">Count</th>
                 </tr>
-            @endforeach
 
-        </table>
+                @foreach ($data as $data)
+                    <tr align="center">
+                        <td>
+                            <input type="text" name="foodname[]" value="{{ $data->title }}" hidden="">
+                            {{ $data->title }}
+                        </td>
+                        <td>
+                            <input type="number" name="price[]" value="{{ $data->price }}" hidden="">
+                            {{ $data->price }}
+                        </td>
+                        <td>
+                            <input type="number" name="quantity[]" value="{{ $data->quantity }}" hidden="">
+                            {{ $data->quantity }}
+                        </td>
+                    </tr>
+                @endforeach
 
-    </div>
-
-
-    <div align="center" style="padding: 30px;">
-        <button class="btn btn-primary" id="order">Order Now</button>
-    </div>
-
-    <div align="center" style="padding: 20px; display: none" id="appear">
-        <div style="padding: 10px;">
-            <label>Name : </label>
-            <input type="text" name="name">
+            </table>
         </div>
-        <div style="padding: 10px;">
-            <label>Phone : </label>
-            <input type="text" name="name">
+
+        <div id="top">
+            <table bgcolor="yellow" border="3px" align="center">
+
+                <tr>
+                    <th style="padding:30px">Action</th>
+                </tr>
+
+                @foreach ($data2 as $index => $data2)
+                    <tr>
+                        <td><a style="background-color: pink" href="{{ url('/deletecartitem', $data2->id) }}">Delete
+                                item {{ $index + 1 }}</a></td>
+                    </tr>
+                @endforeach
+
+            </table>
+
         </div>
-        <div style="padding: 10px;">
-            <label>Address : </label>
-            <input type="text" name="name">
-        </div>
-        <div>
-            <input type="submit" class="btn btn-success" value="Confirm Your Order" style="background-color: green">
-            <button class="btn btn-danger" id="close">Close Order Form</button>
-        </div>
-    </div>
 
 
+        <div align="center" style="padding: 30px;">
+            <button class="btn btn-primary" id="order" type="button" style="background-color: blue">Order Now</button>
+        </div>
+
+        <div align="center" style="padding: 20px; display: none" id="appear">
+            <div style="padding: 10px;">
+                <label>Name : </label>
+                <input type="text" name="name">
+            </div>
+            <div style="padding: 10px;">
+                <label>Phone : </label>
+                <input type="number" name="phone">
+            </div>
+            <div style="padding: 10px;">
+                <label>Address : </label>
+                <input type="text" name="address">
+            </div>
+            <div>
+                <input type="submit" class="btn btn-success" value="Confirm Your Order" style="background-color: green">
+                <button class="btn btn-danger" id="close" type="button" style="background-color: red">Close Order Form</button>
+            </div>
+        </div>
+
+    </form>
 
 
     <!-- jQuery -->
@@ -201,13 +213,13 @@ https://templatemo.com/tm-558-klassy-cafe
 
     <script type="text/javascript">
         $("#order").click(
-            function(){
+            function() {
                 $("#appear").show();
             }
         );
 
         $("#close").click(
-            function(){
+            function() {
                 $("#appear").hide();
             }
         );
