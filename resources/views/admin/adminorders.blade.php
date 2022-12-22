@@ -21,39 +21,52 @@
 
         @include('admin.navbar')
 
-        <div style="position:relative; top:60px; right:-150px">
-            <table bgcolor="grey" border="3px">
-                <tr>
-                    <th style="padding:30px">Customer Name</th>
-                    <th style="padding:70px">Phone</th>
-                    <th style="padding:30px">Address</th>
-                    <th style="padding:30px">Food Name</th>
-                    <th style="padding:30px">Price</th>
-                    <th style="padding:30px">Count</th>
-                    <th style="padding:30px">Total Price</th>
-                    <th style="padding:30px">Action</th>
-                </tr>
+        <div class="container">
 
-                @foreach ($data as $data)
-                    <tr align="center">
-                        <td>{{ $data->name }}</td>
-                        <td>{{ $data->phone }}</td>
-                        <td>{{ $data->address }}</td>
-                        <td>{{ $data->foodname }}</td>
-                        <td>$ {{ $data->price }}</td>
-                        <td>{{ $data->quantity }}</td>
-                        <td>$ {{ ($data->price)*($data->quantity) }}</td>
-                        <td><a style="background-color: pink" href="{{ url('/deleteorder', $data->id) }}">Delete</a></td>
+            <form class="mt-4" action="{{url('/search')}}" method="get">
+                @csrf
+                <input type="text" name="search" placeholder="Enter customer name or food name !" style="color: black; width:40%">
+                <input type="submit" value="Search" class="btn btn-success">
+                <a href="{{ url('/orders') }}" class="btn btn-primary">Show All Orders</a>
+            </form>
+
+            <div></div>
+
+            <div style="position:relative; top:60px; right:-150px">
+                <table bgcolor="grey" border="3px">
+                    <tr>
+                        <th style="padding:30px">Customer Name</th>
+                        <th style="padding:70px">Phone</th>
+                        <th style="padding:30px">Address</th>
+                        <th style="padding:30px">Food Name</th>
+                        <th style="padding:30px">Price</th>
+                        <th style="padding:30px">Count</th>
+                        <th style="padding:30px">Total Price</th>
+                        <th style="padding:30px">Action</th>
                     </tr>
-                @endforeach
 
-            </table>
+                    @foreach ($data as $data)
+                        <tr align="center">
+                            <td>{{ $data->name }}</td>
+                            <td>{{ $data->phone }}</td>
+                            <td>{{ $data->address }}</td>
+                            <td>{{ $data->foodname }}</td>
+                            <td>$ {{ $data->price }}</td>
+                            <td>{{ $data->quantity }}</td>
+                            <td>$ {{ $data->price * $data->quantity }}</td>
+                            <td><a style="background-color: pink" href="{{ url('/deleteorder', $data->id) }}">Delete</a>
+                            </td>
+                        </tr>
+                    @endforeach
+
+                </table>
+            </div>
         </div>
 
     </div>
 
     @include('admin.adminscript')
-    
+
 </body>
 
 

@@ -21,39 +21,43 @@
 
         @include('admin.navbar')
 
-        <div style="position:relative; top:60px; right:-150px">
-            <table bgcolor="grey" border="3px">
-                <tr>
-                    <th style="padding:30px">Name</th>
-                    <th style="padding:70px">Email</th>
-                    <th style="padding:30px">Phone</th>
-                    <th style="padding:30px">Guests</th>
-                    <th style="padding:30px">Date</th>
-                    <th style="padding:30px">Time</th>
-                    <th style="padding:30px">Message</th>
-                    <th style="padding:30px">Action</th>
-                </tr>
+        <div class="container">
 
-                @foreach ($data as $data)
-                    <tr align="center">
-                        <td>{{ $data->name }}</td>
-                        <td>{{ $data->email }}</td>
-                        <td>{{ $data->phone }}</td>
-                        <td>{{ $data->guests }}</td>
-                        <td>{{ $data->date }}</td>
-                        <td>{{ $data->time }}</td>
-                        <td>{{ $data->message }}</td>
-                        <td><a style="background-color: pink" href="{{ url('/deletereservation', $data->id) }}">Delete</a></td>
+            <div style="position:relative; top:60px; right:-150px">
+                <table bgcolor="grey" border="3px">
+                    <tr>
+                        <th style="padding:30px">Name</th>
+                        <th style="padding:70px">Email</th>
+                        <th style="padding:30px">Phone</th>
+                        <th style="padding:30px">Guests</th>
+                        <th style="padding:30px">Date</th>
+                        <th style="padding:30px">Time</th>
+                        <th style="padding:30px">Message</th>
+                        <th style="padding:30px">Action</th>
                     </tr>
-                @endforeach
 
-            </table>
+                    @foreach ($data as $data)
+                        <tr align="center">
+                            <td>{{ $data->name }}</td>
+                            <td>{{ $data->email }}</td>
+                            <td>{{ $data->phone }}</td>
+                            <td>{{ $data->guests }}</td>
+                            <td>{{ $data->date }}</td>
+                            <td>{{ $data->time }}</td>
+                            <td>{{ $data->message }}</td>
+                            <td><a style="background-color: pink"
+                                    href="{{ url('/deletereservation', $data->id) }}">Delete</a></td>
+                        </tr>
+                    @endforeach
+
+                </table>
+            </div>
         </div>
 
     </div>
 
     @include('admin.adminscript')
-    
+
 </body>
 
 

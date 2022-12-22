@@ -53,6 +53,8 @@ Route::get("/orders",[AdminController::class,"order"])->name("orders");
 
 Route::get("/deleteorder/{id}",[AdminController::class,"deleteorder"]);
 
+Route::get("/search",[AdminController::class,"search"]);
+
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),

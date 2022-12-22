@@ -168,4 +168,11 @@ class AdminController extends Controller
         $data->delete();
         return redirect()->back();
     }
+
+    public function search(Request $request)
+    {
+        $search=$request->search;
+        $data=order::where('name','like','%'.$search.'%')->orWhere('foodname','like','%'.$search.'%')->get();
+        return view("admin.adminorders",compact("data"));
+    }
 }

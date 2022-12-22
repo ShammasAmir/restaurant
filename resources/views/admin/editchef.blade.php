@@ -22,38 +22,44 @@
     <div class="container-scroller">
 
         @include('admin.navbar')
-    
-        <div style="position:relative; top:60px; right:-150px">
-            <h2>Edit Chef</h2>
-            <form action="{{url('/updatechef', $data->id)}}" method="POST" enctype="multipart/form-data">
-                @csrf
 
-                <div>
-                    <label for="name">Name</label>
-                    <input type="text" name="name" value="{{$data->name}}" style="color: black; margin-bottom: 10px" required>
-                </div>
+        <div class="container">
 
-                <div>
-                    <label>Speciality</label>
-                    <input type="text" name="speciality" value="{{$data->speciality}}" style="color: black; margin-bottom: 10px" required>
-                </div>
+            <div style="position:relative; top:60px; right:-150px">
+                <h2>Edit Chef</h2>
+                <form action="{{ url('/updatechef', $data->id) }}" method="POST" enctype="multipart/form-data">
+                    @csrf
 
-                <div>
-                    <label>Old Image</label>
-                    <img width="100" height="100" src="/chefimage/{{ $data->image }}" style="color: black; margin-bottom: 10px">
-                </div>
+                    <div class="m-4">
+                        <label for="name">Name</label>
+                        <input type="text" name="name" value="{{ $data->name }}"
+                            style="color: black; margin-bottom: 10px" required>
+                    </div>
 
-                <div>
-                    <label>New Image</label>
-                    <input type="file" name="image" style="color: white; margin-bottom: 10px">
-                </div>
+                    <div class="m-4">
+                        <label>Speciality</label>
+                        <input type="text" name="speciality" value="{{ $data->speciality }}"
+                            style="color: black; margin-bottom: 10px" required>
+                    </div>
 
-                <div>
-                    <input type="submit" value="Edit Chef" style="background-color: yellow; color: black">  
-                </div>
+                    <div class="m-4">
+                        <label>Old Image</label>
+                        <img width="100" height="100" src="/chefimage/{{ $data->image }}"
+                            style="color: black; margin-bottom: 10px">
+                    </div>
 
-            </form>
-        
+                    <div class="m-4">
+                        <label>New Image</label>
+                        <input type="file" name="image" style="color: white; margin-bottom: 10px">
+                    </div>
+
+                    <div>
+                        <input class="mt-4" type="submit" value="Edit Chef" style="background-color: yellow; color: black">
+                    </div>
+
+                </form>
+
+            </div>
         </div>
 
     </div>
