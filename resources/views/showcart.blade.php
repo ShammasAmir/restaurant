@@ -169,8 +169,49 @@ https://templatemo.com/tm-558-klassy-cafe
 
     </div>
 
+
+    <div align="center" style="padding: 30px;">
+        <button class="btn btn-primary" id="order">Order Now</button>
+    </div>
+
+    <div align="center" style="padding: 20px; display: none" id="appear">
+        <div style="padding: 10px;">
+            <label>Name : </label>
+            <input type="text" name="name">
+        </div>
+        <div style="padding: 10px;">
+            <label>Phone : </label>
+            <input type="text" name="name">
+        </div>
+        <div style="padding: 10px;">
+            <label>Address : </label>
+            <input type="text" name="name">
+        </div>
+        <div>
+            <input type="submit" class="btn btn-success" value="Confirm Your Order" style="background-color: green">
+            <button class="btn btn-danger" id="close">Close Order Form</button>
+        </div>
+    </div>
+
+
+
+
     <!-- jQuery -->
     <script src="assets/js/jquery-2.1.0.min.js"></script>
+
+    <script type="text/javascript">
+        $("#order").click(
+            function(){
+                $("#appear").show();
+            }
+        );
+
+        $("#close").click(
+            function(){
+                $("#appear").hide();
+            }
+        );
+    </script>
 
     <!-- Bootstrap -->
     <script src="assets/js/popper.js"></script>
