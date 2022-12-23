@@ -92,6 +92,10 @@ class HomeController extends Controller
             $data->save();
         }
 
+        $id=Auth::id();
+        $data2=cart::select('*')->where('user_id','=',$id);
+        $data2->delete();
+        
         return redirect()->back();
         
     }
