@@ -53,7 +53,7 @@ https://templatemo.com/tm-558-klassy-cafe
                 <div class="col-12">
                     <nav class="main-nav">
                         <!-- ***** Logo Start ***** -->
-                        <a href="index.html" class="logo">
+                        <a href="#" class="logo">
                             <img src="assets/images/klassy-logo.png" align="klassy cafe html template">
                         </a>
                         <!-- ***** Logo End ***** -->
@@ -185,12 +185,8 @@ https://templatemo.com/tm-558-klassy-cafe
                             <h6>About Us</h6>
                             <h2>We Leave A Delicious Memory For You</h2>
                         </div>
-                        <p>Klassy Cafe is one of the best <a href="https://templatemo.com/tag/restaurant"
-                                target="_blank" rel="sponsored">restaurant HTML templates</a> with Bootstrap v4.5.2
-                            CSS framework. You can download and feel free to use this website template layout for your
-                            restaurant business. You are allowed to use this template for commercial purposes.
-                            <br><br>You are NOT allowed to redistribute the template ZIP file on any template donwnload
-                            website. Please contact us for more information.</p>
+                        <p>Klassy Cafe is one of the best restaurants . We prepare and serve high quality, simple food, at a great value, in a home-like environment.
+                            <br><br>Our mission is to WOW people every day !</p>
                         <div class="row">
                             <div class="col-4">
                                 <img src="assets/images/about-thumb-01.jpg" alt="">
@@ -526,7 +522,7 @@ https://templatemo.com/tm-558-klassy-cafe
                 </div>
                 <div class="col-lg-4">
                     <div class="logo">
-                        <a href="index.html"><img src="assets/images/white-logo.png" alt=""></a>
+                        <a href="#"><img src="assets/images/white-logo.png" alt=""></a>
                     </div>
                 </div>
                 <div class="col-lg-4 col-xs-12">

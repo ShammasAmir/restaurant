@@ -55,14 +55,14 @@ https://templatemo.com/tm-558-klassy-cafe
                 <div class="col-12">
                     <nav class="main-nav">
                         <!-- ***** Logo Start ***** -->
-                        <a href="index.html" class="logo">
+                        <a href="{{url('/redirects#')}}" class="logo">
                             <img src="assets/images/klassy-logo.png" align="klassy cafe html template">
                         </a>
                         <!-- ***** Logo End ***** -->
                         <!-- ***** Menu Start ***** -->
                         <ul class="nav">
-                            <li class="scroll-to-section"><a href="#top" class="active">Home</a></li>
-                            <li class="scroll-to-section"><a href="#about">About</a></li>
+                            <li class="scroll-to-section"><a href="{{url('/redirects#top')}}" class="active">Home</a></li>
+                            <li class="scroll-to-section"><a href="{{url('/redirects#about')}}">About</a></li>
 
                             <!--
                             <li class="submenu">
@@ -74,19 +74,19 @@ https://templatemo.com/tm-558-klassy-cafe
                                 </ul>
                             </li>
                         -->
-                            <li class="scroll-to-section"><a href="#menu">Menu</a></li>
-                            <li class="scroll-to-section"><a href="#chefs">Chefs</a></li>
+                            <li class="scroll-to-section"><a href="{{url('/redirects#menu')}}">Menu</a></li>
+                            <li class="scroll-to-section"><a href="{{url('/redirects#chefs')}}">Chefs</a></li>
                             <li class="submenu">
                                 <a href="javascript:;">Features</a>
                                 <ul>
-                                    <li><a href="#">Features Page 1</a></li>
-                                    <li><a href="#">Features Page 2</a></li>
-                                    <li><a href="#">Features Page 3</a></li>
-                                    <li><a href="#">Features Page 4</a></li>
+                                    <li><a href="{{url('/redirects#')}}">Features Page 1</a></li>
+                                    <li><a href="{{url('/redirects#')}}">Features Page 2</a></li>
+                                    <li><a href="{{url('/redirects#')}}">Features Page 3</a></li>
+                                    <li><a href="{{url('/redirects#')}}">Features Page 4</a></li>
                                 </ul>
                             </li>
                             <!-- <li class=""><a rel="sponsored" href="https://templatemo.com" target="_blank">External URL</a></li> -->
-                            <li class="scroll-to-section"><a href="#reservation">Contact Us</a></li>
+                            <li class="scroll-to-section"><a href="{{url('/redirects#reservation')}}">Contact Us</a></li>
 
                             @auth
                                 <li class="scroll-to-section"><a
